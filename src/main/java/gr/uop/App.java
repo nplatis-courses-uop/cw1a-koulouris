@@ -2,6 +2,7 @@ package gr.uop;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,6 +11,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -25,14 +27,15 @@ public class App extends Application {
         Button ok = new Button("OK");
         Button cancel = new Button("Cancel");
         Button help = new Button("Help");
-        VBox buttons = new VBox();
-        buttons.getChildren().add(help);
-        buttons.getChildren().add(cancel);
-        buttons.getChildren().add(ok);
-        VBox.setVgrow(ok, Priority.ALWAYS);
-        VBox.setVgrow(help, Priority.ALWAYS);
-        VBox.setVgrow(cancel, Priority.ALWAYS);
-        buttons.setPadding(new Insets(20));
+        
+        TilePane buttons = new TilePane();
+        buttons.getChildren().addAll(ok, cancel, help);
+        buttons.setOrientation(Orientation.VERTICAL);
+        buttons.setVgap(10);
+        for(int i = 0; i < 3; i++){
+            TilePane.setMargin(buttons.getChildren().get(i), new Insets(5));
+        }
+       
 
         HBox center = new HBox();
         center.getChildren().add(buttons);
