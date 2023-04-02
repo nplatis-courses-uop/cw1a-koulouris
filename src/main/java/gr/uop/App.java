@@ -2,7 +2,6 @@ package gr.uop;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -10,13 +9,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -28,7 +24,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         
-        
+        /*creating button list */
         Button ok = new Button("OK");
         Button cancel = new Button("Cancel");
         Button help = new Button("Help");
@@ -45,7 +41,7 @@ public class App extends Application {
         buttons.setPadding(new Insets(10));
         buttons.setSpacing(5);
 
-        
+        /*creating grid settings */
         GridPane gridSettings = new GridPane();
         CheckBox ch1 = new CheckBox();
         CheckBox ch2 = new CheckBox();
@@ -62,6 +58,7 @@ public class App extends Application {
         gridSettingsT.setPadding(new Insets(10));
         gridSettingsT.setCollapsible(false);
 
+        /*creating grid dimensions */
         GridPane gridDimensions = new GridPane();
         TextField ht = new TextField();
         TextField vt = new TextField();
@@ -78,6 +75,7 @@ public class App extends Application {
         gridDimensionsT.setPadding(new Insets(10));
         gridDimensionsT.setCollapsible(false);
 
+        /*setting up the window */
         HBox center = new HBox();
         center.getChildren().add(gridSettingsT);
         center.getChildren().add(gridDimensionsT);
