@@ -27,15 +27,18 @@ public class App extends Application {
         Button ok = new Button("OK");
         Button cancel = new Button("Cancel");
         Button help = new Button("Help");
-        
-        TilePane buttons = new TilePane();
-        buttons.getChildren().addAll(ok, cancel, help);
-        buttons.setOrientation(Orientation.VERTICAL);
-        buttons.setVgap(10);
-        for(int i = 0; i < 3; i++){
-            TilePane.setMargin(buttons.getChildren().get(i), new Insets(5));
-        }
-       
+        ok.setMaxWidth(Double.MAX_VALUE);
+        cancel.setMaxWidth(Double.MAX_VALUE);
+        help.setMaxWidth(Double.MAX_VALUE);
+        VBox buttons = new VBox();
+        buttons.getChildren().add(ok);
+        buttons.getChildren().add(cancel);
+        buttons.getChildren().add(help);
+        VBox.setVgrow(ok, Priority.ALWAYS);
+        VBox.setVgrow(help, Priority.ALWAYS);
+        VBox.setVgrow(cancel, Priority.ALWAYS);
+        buttons.setPadding(new Insets(20));
+        buttons.setSpacing(10);
 
         HBox center = new HBox();
         center.getChildren().add(buttons);
