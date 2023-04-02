@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.Border;
@@ -85,11 +86,15 @@ public class App extends Application {
         HBox.setHgrow(gridDimensionsT, Priority.ALWAYS);
         HBox.setHgrow(buttons, Priority.ALWAYS);
 
-        BorderPane main = new BorderPane();
         Label status = new Label("Status");
-        main.setBottom(status);
-        main.setCenter(center);
+        VBox bottom = new VBox();
+        Separator line = new Separator();
+        bottom.getChildren().add(line);
+        bottom.getChildren().add(status);
 
+        BorderPane main = new BorderPane();
+        main.setCenter(center);
+        main.setBottom(bottom);
 
         var scene = new Scene(main, 500, 180);
         stage.setScene(scene);
