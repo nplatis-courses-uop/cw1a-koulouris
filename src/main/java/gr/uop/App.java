@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
@@ -60,12 +61,29 @@ public class App extends Application {
         gridSettingsT.setPadding(new Insets(10));
         gridSettingsT.setCollapsible(false);
 
-
+        GridPane gridDimensions = new GridPane();
+        TextField ht = new TextField();
+        TextField vt = new TextField();
+        Label h = new Label("Horizontal:");
+        Label v = new Label("Vertical:");
+        gridDimensions.add(h, 0, 0);
+        gridDimensions.add(ht, 1, 0);
+        gridDimensions.add(v, 0, 1);
+        gridDimensions.add(vt, 1, 1);
+        gridDimensions.setPadding(new Insets(10));
+        gridDimensions.setHgap(5);
+        gridDimensions.setVgap(2);
+        TitledPane gridDimensionsT = new TitledPane("Grid Dimensions", gridDimensions);
+        gridDimensionsT.setPadding(new Insets(10));
+        gridDimensionsT.setCollapsible(false);
 
         HBox center = new HBox();
         center.getChildren().add(gridSettingsT);
+        center.getChildren().add(gridDimensionsT);
         center.getChildren().add(buttons);
-       
+        HBox.setHgrow(gridSettingsT, Priority.ALWAYS);
+        HBox.setHgrow(gridDimensionsT, Priority.ALWAYS);
+        HBox.setHgrow(buttons, Priority.ALWAYS);
 
         BorderPane main = new BorderPane();
         Label status = new Label("Status");
