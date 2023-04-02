@@ -98,6 +98,8 @@ public class App extends Application {
 
         var scene = new Scene(main, 500, 180);
         stage.setScene(scene);
+        stage.setMinHeight(180);
+        stage.setMinWidth(500);
         stage.setTitle("Settings");
         stage.show();
     }
