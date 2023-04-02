@@ -5,9 +5,12 @@ import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TitledPane;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
@@ -37,11 +40,33 @@ public class App extends Application {
         VBox.setVgrow(ok, Priority.ALWAYS);
         VBox.setVgrow(help, Priority.ALWAYS);
         VBox.setVgrow(cancel, Priority.ALWAYS);
-        buttons.setPadding(new Insets(20));
-        buttons.setSpacing(10);
+        buttons.setPadding(new Insets(10));
+        buttons.setSpacing(5);
+
+        
+        GridPane gridSettings = new GridPane();
+        CheckBox ch1 = new CheckBox();
+        CheckBox ch2 = new CheckBox();
+        Label l1 = new Label("Snap to Grid");
+        Label l2 = new Label("Show Grid");
+        gridSettings.add(ch1, 0, 0);
+        gridSettings.add(l1, 1, 0);
+        gridSettings.add(ch2, 0, 1);
+        gridSettings.add(l2, 1, 1);
+        gridSettings.setPadding(new Insets(10));
+        gridSettings.setHgap(5);
+        gridSettings.setVgap(2);
+        TitledPane gridSettingsT = new TitledPane("Grid Settings", gridSettings);
+        gridSettingsT.setPadding(new Insets(10));
+        gridSettingsT.setCollapsible(false);
+
+
 
         HBox center = new HBox();
+        center.getChildren().add(gridSettingsT);
         center.getChildren().add(buttons);
+       
+
         BorderPane main = new BorderPane();
         Label status = new Label("Status");
         main.setBottom(status);
